@@ -76,7 +76,7 @@ public:
         node->next = newNode;
     }
 
-    void deleteAfter(Node *prevNode) // O(1)
+    void deleteAfter(Node *prevNode) // O(1);
     {
         if (!prevNode->next)
             return;
