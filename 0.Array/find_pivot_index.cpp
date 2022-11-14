@@ -4,19 +4,20 @@
 
 int findPivotIdx(const std::vector<int> &v)
 {
-    int rightSum = std::accumulate(v.begin(), v.end(), 0);
+    int allSum = std::accumulate(v.begin(), v.end(), 0);
+    int rightSum = allSum;
     int leftSum = 0;
     int prevPivot = 0;
 
-    for (int idx = 0; idx < v.size(); ++idx)
+    for (int pivot = 0; pivot < v.size(); ++pivot)
     {
-        rightSum -= v[idx];
+        rightSum -= v[pivot];
         leftSum += prevPivot;
 
         if (rightSum == leftSum)
-            return idx;
+            return pivot;
 
-        prevPivot = v[idx];
+        prevPivot = v[pivot];
     }
 
     return -1;
