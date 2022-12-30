@@ -8,27 +8,29 @@ struct Employee
     char name;
 };
 
-bool operator<(const Employee &lhs, const Employee &rhs)
+bool operator< (const Employee&lhs, const Employee&rhs)
 {
     return lhs.age < rhs.age;
 };
 
 int main()
 {
-    std::vector<Employee> v{
+    std::vector<Employee> v {
         {200, 'A'},
         {200, 'B'},
         {200, 'C'},
         {200, 'D'},
-        {200, 'F'},
+        {200, 'E'},
     };
 
-    for (int i = 9; i < 30; i++)
+    for (int i = 9; i < 100; ++i)
+    {
         v.emplace_back(Employee{i, 'Z'});
+    }
 
-    // std::stable_sort(v.begin(), v.end());
+    // 같은 Value에 대해서 기존 순서 유지하지 않음.
     std::sort(v.begin(), v.end());
 
-    for (const Employee &e : v)
+    for (const Employee& e : v)
         std::cout << e.age << ", " << e.name << std::endl;
 }
