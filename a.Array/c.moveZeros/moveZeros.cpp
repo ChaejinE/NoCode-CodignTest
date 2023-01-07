@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+// https://leetcode.com/problems/move-zeroes/description/
+
 void moveZeros(std::vector<int> &nums)
 {
     int zeroIdx = 0;
